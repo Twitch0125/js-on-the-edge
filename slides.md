@@ -47,6 +47,19 @@ layout: center
 Instead of static HTML, you're running your code and delivering the output.
 
 ---
+
+## Cloudflare Workers
+- v8 Isolates. No Cold Starts (not Node.js)
+- powers Vercel Edge Functions
+## Deno Deploy
+- Deno and v8. Optimized for minimal cold starts
+- powers Netlify Edge Functions, Supabase Edge Functions
+
+## Docker MicroVMs
+- Fly.io w/ Firecracker
+- auto-scaling, minimum 1 instance to prevent cold starts
+
+---
 layout: statement
 ---
 # Why the edge?
@@ -60,15 +73,20 @@ layout: center
 - deploys almost like deploying on a CDN (easy deployment)
 ## Cost
 - Its cheaper! Kinda.
+- Zero Maintenance
 
 <!-- If your app works fine on a few ec2 instances then it may not be cheaper. But if you have customers
 all over the world, then this might be good. There's even SQLite on the edge with Fly.io and lightstream, which  is
 basically a sqlite database replicated across various S3 buckets -->
 
 ---
-layout: quote
----
-# "History doesn't repeat itself, but it rhymes"
-someone smart
+# Limitations
+## Cloudflare Workers
+- Maximum app size of 1 MB
+- Nodejs APIS not available
+- max 128MiB memory usage
 
-<!-- Back in the day everything was server rendered. Then SPAs were the new hotness and nothing was server side rendered. Now we're going back to server side rendering but on a bunch of really small servers. -->
+---
+layout: statement
+---
+# How do I get started?
