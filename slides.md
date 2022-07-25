@@ -47,6 +47,8 @@ layout: center
 Instead of static HTML, you're running your code and delivering the output.
 
 ---
+layout: center
+---
 
 ## Cloudflare Workers
 - v8 Isolates. No Cold Starts (not Node.js)
@@ -67,6 +69,7 @@ layout: statement
 ---
 layout: center
 ---
+
 # A Few Reasons
 ## SSR
 - running your code closer to your customers will reduce loading times
@@ -80,13 +83,33 @@ all over the world, then this might be good. There's even SQLite on the edge wit
 basically a sqlite database replicated across various S3 buckets -->
 
 ---
+layout: center
+---
 # Limitations
+The smaller the better
 ## Cloudflare Workers
 - Maximum app size of 1 MB
-- Nodejs APIS not available
+- Nodejs APIS not available. Cloudflare specific runtime
 - max 128MiB memory usage
+## Deno Deploy
+- Maximum app size of 20 MB
+- max 512MiB memory usage
+- NodeJS APIs not available (cuz its deno...)
+---
+layout: center
+---
+
+# Workarounds and Tips
+- Per Route Configuration. Only push some routes to the edge
+- Lightweight Web Standards compliant Server (Nuxt/Nitro)
 
 ---
-layout: statement
+layout: center
 ---
 # How do I get started?
+Popular Frameworks
+- Fresh (deno)
+- Nuxt 3 (vue)
+- Remix
+- SvelteKit
+- Next.js
