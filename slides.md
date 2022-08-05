@@ -73,10 +73,10 @@ layout: center
 # A Few Reasons
 ## SSR
 - running your code closer to your customers will reduce loading times
-- deploys almost like deploying on a CDN (easy deployment)
+- deploys almost like you're using a CDN (easy deployment)
 ## Cost
 - Its cheaper! Kinda.
-- Zero Maintenance
+- Zero Maintenance. Kinda.
 
 <!-- If your app works fine on a few ec2 instances then it may not be cheaper. But if you have customers
 all over the world, then this might be good. There's even SQLite on the edge with Fly.io and lightstream, which  is
@@ -86,12 +86,14 @@ basically a sqlite database replicated across various S3 buckets -->
 layout: center
 ---
 # Limitations
-The smaller the better
+Each platform is different. In general, the smaller the better.
 ## Cloudflare Workers
+Vercel Edge
 - Maximum app size of 1 MB
 - Nodejs APIS not available. Cloudflare specific runtime
 - max 128MiB memory usage
 ## Deno Deploy
+Netlify Edge
 - Maximum app size of 20 MB
 - max 512MiB memory usage
 - NodeJS APIs not available (cuz its deno...)
