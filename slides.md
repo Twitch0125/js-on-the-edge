@@ -114,3 +114,7 @@ Popular Frameworks
 - Remix
 - SvelteKit
 - Next.js
+
+
+# Benchmarking
+Nuxt 3 Vercenl - 141ms avg response time
