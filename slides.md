@@ -24,7 +24,6 @@ css: unocss
 ---
 
 # JS On the "Edge"
-What is it and how do I use it
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
@@ -43,23 +42,19 @@ But they're just down the street from your customers! -->
 ---
 layout: center
 ---
-# Think of it as a CDN for your code
+# Think of it as a CDN for your server side rendering
 Instead of static HTML, you're running your code and delivering the output.
 
 ---
 layout: center
 ---
-
+# The Big Players
 ## Cloudflare Workers
 - v8 Isolates. No Cold Starts (not Node.js)
 - powers Vercel Edge Functions
 ## Deno Deploy
 - Deno and v8. Optimized for minimal cold starts
 - powers Netlify Edge Functions, Supabase Edge Functions
-
-## Docker MicroVMs
-- Fly.io w/ Firecracker
-- auto-scaling, minimum 1 instance to prevent cold starts
 
 ---
 layout: statement
@@ -75,8 +70,8 @@ layout: center
 - running your code closer to your customers will reduce loading times
 - deploys almost like you're using a CDN (easy deployment)
 ## Cost
-- Its cheaper! Kinda.
-- Zero Maintenance. Kinda.
+- Its cheaper! (maybe).
+- Zero Maintenance.
 
 <!-- If your app works fine on a few ec2 instances then it may not be cheaper. But if you have customers
 all over the world, then this might be good. There's even SQLite on the edge with Fly.io and lightstream, which  is
@@ -86,23 +81,27 @@ basically a sqlite database replicated across various S3 buckets -->
 layout: center
 ---
 # Limitations
-Each platform is different. In general, the smaller the better.
+The smaller the better
 ## Cloudflare Workers
-Vercel Edge
 - Maximum app size of 1 MB
 - Nodejs APIS not available. Cloudflare specific runtime
 - max 128MiB memory usage
 ## Deno Deploy
-Netlify Edge
 - Maximum app size of 20 MB
 - max 512MiB memory usage
 - NodeJS APIs not available (cuz its deno...)
+
+---
+layout: center
+---
+# Your Databases should also be distributed!
+Your database is still your bottleneck
 ---
 layout: center
 ---
 
 # Workarounds and Tips
-- Per Route Configuration. Only push some routes to the edge
+- Per Route Configuration. Only push some routes to the edge (Next.js makes this easy)
 - Lightweight Web Standards compliant Server (Nuxt/Nitro)
 
 ---
