@@ -24,6 +24,7 @@ css: unocss
 ---
 
 # JS On the "Edge"
+or maybe the "Edge" is JS?
 
 <!--
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
@@ -33,49 +34,97 @@ The last comment block of each slide will be treated as slide notes. It will be 
 layout: statement
 ---
 # Remember "Lambdas" or Serverless Functions?
-Basically just that.
-
-but its *cool* again
-<!-- you're running code on someone else's computer, but they're gonna bill you on how long your code takes to run.
-But they're just down the street from your customers! -->
+<v-click>
+<h3> 
+Its garbage now, get it out of here
+</h3>
+</v-click>
 
 ---
 layout: center
 ---
-# Think of it as a CDN for your server side rendering
-Instead of static HTML, you're running your code and delivering the output.
+
+## "Traditional" serverless computing 
+<v-clicks>
+
+- AWS Lambda Edge. Uses Lambda and Cloudfront CDN
+  
+- GCP Cloud Run
+
+- running your code on distributed docker containers or vms
+
+**They all suffer from one common problem**
+</v-clicks>
+
+
+---
+layout: statement
+---
+
+# Cold Starts
+The time spent to start your app.
+
+<!--
+Cold starts are kind of an inherent problem with Serverless. You wanna stop something to save resources but you also want it to act as if it was never off.
+-->
+
+---
+layout: default
+---
+## Why are cold starts a thing?
+<v-click>
+
+the lifecycle for a container looks something like this
+</v-click>
+
+<v-clicks>
+
+1. create your container <span style="opacity: 0.4"> adds cold start time </span>
+2. app starts up in the container  <span style="opacity: 0.4"> adds cold start time </span>
+3. app handles request or whatever until it stops receiving them
+4. container stops after some time of inactivity 
+</v-clicks>
+
+<v-clicks>
+
+You want these steps to be as short as possible. That creates a better user experience and is cheaper for you.
+
+They can take anywhere from about 700 ms to a few seconds.
+
+1 and 2 is where there's a lot of overhead from containers. You could improve the cold start times by foregoing containers, but we like containers!
+
+How can this be improved?
+
+</v-clicks>
+
+---
+layout: statement
+---
+# v8 Isolates and Web Assembly
+Its been under our noses this whole time...
+well, since 2017-ish
+
+---
+layout: default
+---
+# v8 Isolates
+This is how v8 "sandboxes" javascript.
+
+---
+layout: default
+---
+# Web Assembly
+compile target that can run in a web environment (v8)
+
 
 ---
 layout: center
 ---
 # The Big Players
 ## Cloudflare Workers
-- v8 Isolates. No Cold Starts (not Node.js)
 - powers Vercel Edge Functions
 ## Deno Deploy
-- Deno and v8. Optimized for minimal cold starts
 - powers Netlify Edge Functions, Supabase Edge Functions
-
----
-layout: statement
----
-# Why the edge?
-
----
-layout: center
----
-
-# A Few Reasons
-## SSR
-- running your code closer to your customers will reduce loading times
-- deploys almost like you're using a CDN (easy deployment)
-## Cost
-- Its cheaper! (maybe).
-- Zero Maintenance.
-
-<!-- If your app works fine on a few ec2 instances then it may not be cheaper. But if you have customers
-all over the world, then this might be good. There's even SQLite on the edge with Fly.io and lightstream, which  is
-basically a sqlite database replicated across various S3 buckets -->
 
 ---
 layout: center
@@ -84,7 +133,7 @@ layout: center
 The smaller the better
 ## Cloudflare Workers
 - Maximum app size of 1 MB
-- Nodejs APIS not available. Cloudflare specific runtime
+- Nodejs APIS not available. Cloudflare specific runtime based on web standards
 - max 128MiB memory usage
 ## Deno Deploy
 - Maximum app size of 20 MB
@@ -114,7 +163,8 @@ Popular Frameworks
 - Remix
 - SvelteKit
 - Next.js
+- Astro
 
 
 # Benchmarking
-Nuxt 3 Vercenl - 141ms avg response time
+Nuxt 3 Vercel - 141ms avg response time
