@@ -22,6 +22,7 @@ drawings:
 # use UnoCSS (experimental)
 css: unocss
 fonts:
+  provider: 'none'
   sans: 'Satoshi'
 ---
 
