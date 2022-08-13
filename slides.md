@@ -33,21 +33,20 @@ or maybe the "Edge" is JS?
 The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
 -->
 
+
 ---
-layout: statement
+layout: center
 ---
-# Remember "Lambdas" or Serverless Functions?
-<v-click>
-<h3> 
-Its garbage now, get it out of here
-</h3>
-</v-click>
+# What is the edge?
+Serverless Edge Computing
+
+Running your code on someone else's computer and only for the amount of time it needs to and as close as possible to users
 
 ---
 layout: center
 ---
 
-## "Traditional" serverless computing 
+# "Traditional" serverless computing 
 <v-clicks>
 
 - AWS Lambda Edge. Uses Lambda and Cloudfront CDN
@@ -73,7 +72,7 @@ layout: fact
 The time spent to start your app.
 
 ---
-layout: default
+layout: center
 ---
 
 ## Why are cold starts a thing?
@@ -126,7 +125,7 @@ layout: statement
 This is how v8 "sandboxes" javascript.
 
 ---
-layout: default
+layout: center
 ---
 
 # Whats special about v8 Isolates?
@@ -136,8 +135,8 @@ layout: default
 - A runtime can run thousands of Isolates at once
 - fast startup
 - Each Isolate's memory is isolated which protects it from other isolates on the runtime
-- Rather than paying the overhead of starting a container every time, you pay overhead *once* when starting the runtime
-- The runtime runs continuously
+- Rather than paying the overhead of starting a container every time, you pay overhead *once* when starting v8
+- v8 runs continuously
 
 <div class="mt-6">
 
@@ -194,9 +193,17 @@ Web Assembly is a common compile target. Instead of building images that bundle 
 -->
 
 ---
-layout: default
+layout: center
 ---
 # Whats special about web assembly?
+- Allows you to run programs written in Rust, Go, C++, pretty much anything that can compile to WASM, in the web
+- Runs at near native speeds
+- Also runs in sandboxes
+
+---
+layout: fact
+---
+# How do I start?
 
 ---
 layout: center
@@ -204,8 +211,14 @@ layout: center
 # The Big Players
 ## Cloudflare Workers
 - powers Vercel Edge Functions
+- runs on cloudflare's network
+- more popular (or at least has more marketing)
 ## Deno Deploy
 - powers Netlify Edge Functions, Supabase Edge Functions
+- Absurdly fast deployment (if you don't have a build step)
+- better free tier
+
+<!-- Shopify Oxygen is also doing using javascript containers. Though I'm not sure if they're using their own thing or not -->
 
 ---
 layout: center
@@ -214,18 +227,30 @@ layout: center
 The smaller the better
 ## Cloudflare Workers
 - Maximum app size of 1 MB
-- Nodejs APIS not available. Cloudflare specific runtime based on web standards
+- Nodejs APIS not all available. Cloudflare specific runtime (basically stripped down Node)
 - max 128MiB memory usage
 ## Deno Deploy
 - Maximum app size of 20 MB
 - max 512MiB memory usage
 - NodeJS APIs not available (cuz its deno...)
 
+<v-click>
+
+[WinterCG](https://wintercg.org/)
+
+</v-click>
+
+<!-- The runtimes are kinda crazy right now. Though the WinterCG is helping to standardize these -->
+
 ---
-layout: center
+layout: statement
 ---
 # Your Databases should also be distributed!
 Your database is still your bottleneck
+
+
+<!-- You can distribute your business logic, but if you do that then maybe you should distribute data. -->
+
 ---
 layout: center
 ---
@@ -243,9 +268,5 @@ Popular Frameworks
 - Nuxt 3 (vue)
 - Remix
 - SvelteKit
-- Next.js
-- Astro
-
-
-# Benchmarking
-Nuxt 3 Vercel - 141ms avg response time
+- Next.js (react)
+- Astro (react, vue, svelte, solid)
