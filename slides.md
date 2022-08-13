@@ -21,6 +21,8 @@ drawings:
   persist: false
 # use UnoCSS (experimental)
 css: unocss
+fonts:
+  sans: 'Satoshi'
 ---
 
 # JS On the "Edge"
@@ -56,21 +58,23 @@ layout: center
 **They all suffer from one common problem**
 </v-clicks>
 
+<!--
+for the past couple years if you wanted to do Serverless you'd usually create a container and ship it to some provider. Or you could send providers functions that are ran in their runtimes.
+
+They all come with one caveat though.
+-->
 
 ---
-layout: statement
+layout: fact
 ---
 
 # Cold Starts
 The time spent to start your app.
 
-<!--
-Cold starts are kind of an inherent problem with Serverless. You wanna stop something to save resources but you also want it to act as if it was never off.
--->
-
 ---
 layout: default
 ---
+
 ## Why are cold starts a thing?
 <v-click>
 
@@ -87,35 +91,111 @@ the lifecycle for a container looks something like this
 
 <v-clicks>
 
-You want these steps to be as short as possible. That creates a better user experience and is cheaper for you.
-
-They can take anywhere from about 700 ms to a few seconds.
-
 1 and 2 is where there's a lot of overhead from containers. You could improve the cold start times by foregoing containers, but we like containers!
 
-How can this be improved?
+How can this be improved? How can we keep the benefits of containers?
+
+</v-clicks>
+
+<!--
+Cold starts are an inherent problem with Serverless. You wanna stop something to save resources but then you have to turn it back on. Turning it on takes time.
+
+Cold starts can last anywhere from about 500ms to 2 seconds. Depending on your runtime.
+
+Of course you don't *have* to use containers, but they're just super useful. It tends to be quicker to run directly in a runtime without a container.
+-->
+
+---
+layout: statement
+---
+Introducing...
+
+<v-clicks>
+
+# Javascript Containers
+v8 Isolates and Web Assembly
 
 </v-clicks>
 
 ---
 layout: statement
 ---
-# v8 Isolates and Web Assembly
-Its been under our noses this whole time...
-well, since 2017-ish
 
----
-layout: default
----
 # v8 Isolates
 This is how v8 "sandboxes" javascript.
 
 ---
 layout: default
 ---
+
+# Whats special about v8 Isolates?
+
+<v-clicks>
+
+- A runtime can run thousands of Isolates at once
+- fast startup
+- Each Isolate's memory is isolated which protects it from other isolates on the runtime
+- Rather than paying the overhead of starting a container every time, you pay overhead *once* when starting the runtime
+- The runtime runs continuously
+
+<div class="mt-6">
+
+> Any given isolate can start around a hundred times faster than a Node process on a container or virtual machine. Notably, on startup isolates consume an order of magnitude less memory. — [**Cloudflare Workers Documentation**](https://developers.cloudflare.com/workers/learning/how-workers-works/#isolates)
+
+</div>
+
+</v-clicks>
+<!--
+using v8 Isolates you can drastically reduce the overhead from spinning up the runtime environment.
+-->
+
+
+---
+layout: center
+---
+
+Lets Review
+<v-clicks>
+
+# dockerd -> v8 runtime
+v8 is starting and stopping our "containers"
+
+# docker run my-container -> v8 isolates
+our "containers" are v8 isolates
+
+</v-clicks>
+
+<!--
+I may be getting something totally wrong here, but based on how I understand docker and use it these are the comparisons I'm making.
+-->
+
+---
+layout: statement
+---
+<h1> docker build -> <v-click> <span> Web Assembly </span> </v-click> </h1>
+
+<v-clicks>
+
+our "images" are Web Assembly
+
+</v-clicks>
+
+
+---
+layout: statement
+---
+
 # Web Assembly
 compile target that can run in a web environment (v8)
 
+<!--
+Web Assembly is a common compile target. Instead of building images that bundle all of their application's dependencies, they get compiled down to web assembly that can be run by v8
+-->
+
+---
+layout: default
+---
+# Whats special about web assembly?
 
 ---
 layout: center
