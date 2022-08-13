@@ -38,5 +38,5 @@ jobs:
         uses: denoland/deployctl@v1
         with:
           project: js-on-the-edge # the name of the project on Deno Deploy
-          entrypoint: https://deno.land/std@0.140.0/http/file_server.ts
+          entrypoint: https://deno.land/std@0.152.0/http/file_server.ts
           root: dist # Where the built HTML/CSS/JS files are located.
