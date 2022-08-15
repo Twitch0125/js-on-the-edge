@@ -1,46 +1,47 @@
 ---
-# try also 'default' to start simple
 theme: default
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
 background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
-class: 'text-center'
-# https://sli.dev/custom/highlighters.html
+class: text-center
 highlighter: shiki
-# show line numbers in code blocks
 lineNumbers: false
-# some information about the slides, markdown enabled
 info: |
   ## Slidev Starter Template
   Presentation slides for developers.
 
   Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
 drawings:
   persist: false
-# use UnoCSS (experimental)
 css: unocss
 fonts:
-  provider: 'none'
-  sans: 'Satoshi'
+  provider: none
+  sans: Satoshi
+title: JS On the "Edge"
 ---
 
 # JS On the "Edge"
 or maybe the "Edge" is JS?
 
 <!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
+I'll be talking about What is the "Edge" and what does JS have to do with it?
 -->
-
 
 ---
 layout: center
 ---
+
 # What is the edge?
 Serverless Edge Computing
 
-Running your code on someone else's computer and only for the amount of time it needs to and as close as possible to users
+Running your code on someone else's computer and only for the amount of time it needs to and **as close as possible** to users
+
+## Edge Rendering
+Rendering HTML on the edge. Basically just regular rendering but in a different location, but with a few limitations. I'll explain later
+
+<!--
+How does the "Edge" differ from typical rendering? How does it differ from typical Serverless Computing?
+
+I'll be talking more about edge computing here
+-->
 
 ---
 layout: center
@@ -108,6 +109,7 @@ Of course you don't *have* to use containers, but they're just super useful. It 
 ---
 layout: statement
 ---
+
 Introducing...
 
 <v-clicks>
@@ -116,6 +118,12 @@ Introducing...
 v8 Isolates and Web Assembly
 
 </v-clicks>
+
+<!--
+This is where Javascript Comes in
+
+or more specifically, v8 and Web Assembly
+-->
 
 ---
 layout: statement
@@ -154,7 +162,7 @@ using v8 Isolates you can drastically reduce the overhead from spinning up the r
 layout: center
 ---
 
-Lets Review
+How is this like containers?
 <v-clicks>
 
 # dockerd -> v8 runtime
@@ -195,10 +203,25 @@ Web Assembly is a common compile target. Instead of building images that bundle 
 ---
 layout: center
 ---
+
 # Whats special about web assembly?
 - Allows you to run programs written in Rust, Go, C++, pretty much anything that can compile to WASM, in the web
 - Runs at near native speeds
 - Also runs in sandboxes
+
+<!--
+Web Assembly can be ran in v8, which means you can run any compiled language in it. I wanted to show a demo of this but didn't have time :(
+You don't have to use WASM, you can use plain JS and be just fine too. This just enables you to use an existing tech stack and get the performance gains from v8.
+I feel like WASM isn't quite there yet as far as ease of use goes, but I haven't played around with it much.
+-->
+
+---
+layout: quote
+---
+
+<quote />
+
+[twitter](https://twitter.com/solomonstre/status/1111004913222324225?lang=en)
 
 ---
 layout: fact
@@ -224,7 +247,7 @@ layout: center
 layout: center
 ---
 # Limitations
-The smaller the better
+The smaller the app, the better
 ## Cloudflare Workers
 - Maximum app size of 1 MB
 - Nodejs APIS not all available. Cloudflare specific runtime (basically stripped down Node)
