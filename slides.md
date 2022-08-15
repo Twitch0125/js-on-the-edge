@@ -286,13 +286,19 @@ layout: center
 layout: center
 ---
 # Frameworks
-Popular Frameworks
+Popular Frameworks that make it easy to take advantage of this
 - Fresh (deno)
+  - ssr and islands architecture. No build step (kinda). Really nice DX compared to node in my opinion
 - Nuxt 3 (vue)
+  - Super quick to write vue SSR apps, kinda magical. Can directly call your api endpoint code on the server side. 
 - Remix
+  - React SSR, also has a new way of calling backend code. You write your backend logic in each "page" file. (vue support planned)
 - SvelteKit
+  - Svelte SSR, static generate specific routes, specify 0 JS pages,
 - Next.js (react)
+  - React SSR, static generate specific routes, can specify specific routes to go "serverless", awesome support by vercel
 - Astro (react, vue, svelte, solid)
+  -  Islands Arch. I'd say is geared more towards static applications, but can do SSR. Haven't looked much into the SSR part though.
 
 ---
 layout: center
@@ -303,3 +309,29 @@ layout: center
 3. push build to the platform you "adapted" for
 
 The adapter will usually take all the files and create a payload that works with whatever platform.
+
+---
+layout: center
+---
+# Differences between usual SSR (with node)
+- The framework will probably have you use Web Standard apis. ex: Fetch, Request, Response, etc
+- You have to take into account what runtime your app will be in. ie: if your app works when hosted as a node server, its not guaranteed to work in a Cloudflare Worker or on Deno Deploy
+
+---
+layout: statement
+---
+# Closing Thoughts
+
+<!-- This way of running serverless applications being pushed by Cloudflare Workers and Deno Deploy is still really new, but its getting much more popular.
+There's also improvements being made in the "Traditional" space with docker/vms. Fly.io is a pretty cool example with their distributed micro vm/docker infrastructure. There's also things like Lightstream that can help with distributed databases. Its all very cool and I can't wait to see it evolve more. -->
+
+---
+layout: center
+---
+# resources
+[Cloudflare Workers](https://workers.cloudflare.com/)
+[How Workers Work](https://developers.cloudflare.com/workers/learning/how-workers-works/)
+[Deno Deploy](https://deno.com/deploy)
+## Runtime
+[Cloudflare Workers](https://developers.cloudflare.com/workers/runtime-apis/)
+[Deno Deploy](https://deno.com/deploy/docs/runtime-api)
