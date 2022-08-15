@@ -285,7 +285,7 @@ layout: center
 ---
 layout: center
 ---
-# How do I get started?
+# Frameworks
 Popular Frameworks
 - Fresh (deno)
 - Nuxt 3 (vue)
@@ -293,3 +293,13 @@ Popular Frameworks
 - SvelteKit
 - Next.js (react)
 - Astro (react, vue, svelte, solid)
+
+---
+layout: center
+---
+# Your typical flow is like this
+1. write your code
+2. build with an "adapter"
+3. push build to the platform you "adapted" for
+
+The adapter will usually take all the files and create a payload that works with whatever platform.
