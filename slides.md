@@ -328,10 +328,14 @@ There's also improvements being made in the "Traditional" space with docker/vms.
 ---
 layout: center
 ---
-# resources
+# Resources
 [Cloudflare Workers](https://workers.cloudflare.com/)
+
 [How Workers Work](https://developers.cloudflare.com/workers/learning/how-workers-works/)
+
 [Deno Deploy](https://deno.com/deploy)
+
 ## Runtime
 [Cloudflare Workers](https://developers.cloudflare.com/workers/runtime-apis/)
+
 [Deno Deploy](https://deno.com/deploy/docs/runtime-api)
