@@ -355,3 +355,6 @@ layout: center
 [Cloudflare Workers](https://developers.cloudflare.com/workers/runtime-apis/)
 
 [Deno Deploy](https://deno.com/deploy/docs/runtime-api)
+
+## This Presentation
+[Slides](https://github.com/Twitch0125/js-on-the-edge)
