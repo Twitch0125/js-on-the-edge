@@ -26,6 +26,20 @@ I'll be talking about What is the "Edge" and what does JS have to do with it?
 -->
 
 ---
+layout: two-cols
+---
+
+# Kaleb Ercanbrack
+UI Developer (JS) ꞏ 3 Years
+
+[https://twitch0125.github.io](https://twitch0125.github.io/)
+
+::right::
+
+<img src="/Profile.jpg" alt="Profile picture of me, Kaleb Ercanbrack" class="">
+
+
+---
 layout: center
 ---
 
