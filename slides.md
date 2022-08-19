@@ -34,6 +34,8 @@ UI Developer (JS) ꞏ 3 Years
 
 [https://twitch0125.github.io](https://twitch0125.github.io/)
 
+https://js-on-the-edge.vercel.app
+
 ::right::
 
 <img src="/Profile.jpg" alt="Profile picture of me, Kaleb Ercanbrack" class="">
@@ -282,11 +284,13 @@ The smaller the app, the better
 ---
 layout: statement
 ---
+
 # Your Databases should also be distributed!
-Your database is still your bottleneck
+really everything should be distributed
 
-
-<!-- You can distribute your business logic, but if you do that then maybe you should distribute data. -->
+<!--
+You can distribute your business logic, but if you do that then maybe you should distribute data.
+-->
 
 ---
 layout: center
